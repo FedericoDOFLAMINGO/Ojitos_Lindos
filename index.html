@@ -286,17 +286,19 @@
   #final{
     position:fixed; inset:0; z-index:10001;
     background: #000;
-    display:flex; align-items:center; justify-content:center;
+    display:flex; align-items:center; justify-content:flex-start;
     flex-direction:column;
     opacity:0; visibility:hidden;
     transition: opacity 2s ease 0.5s, visibility 2s ease 0.5s;
     text-align:center;
-    padding:5vh 5vw;
+    padding: 8vh 5vw 10vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
   }
   #final.mostrar{ opacity:1; visibility:visible; }
 
   #explosion-corazones{
-    position:absolute;
+    position:fixed;
     inset:0;
     pointer-events:none;
     z-index:10002;
@@ -327,6 +329,7 @@
   .video-frame{
     position:relative;
     display:inline-block;
+    flex-shrink:0;
     padding: 26px;
     border-radius:10px;
     background:
@@ -341,7 +344,7 @@
     position:relative;
     z-index:2;
     max-width: min(85vw, 640px);
-    max-height:55vh;
+    max-height:50vh;
     border: 1px solid var(--gold);
     background:#000;
   }
@@ -361,9 +364,12 @@
     font-family:'Playfair Display', serif;
     font-style:italic;
     font-weight:600;
-    font-size:clamp(1.6rem, 4.5vw, 2.6rem);
+    font-size:clamp(1.4rem, 4vw, 2.2rem);
     color: var(--gold-soft);
     margin-top:2rem;
+    max-width:700px;
+    line-height:1.5;
+    flex-shrink:0;
     opacity:0;
     transform:translateY(15px);
     transition: opacity 1.5s ease 1.2s, transform 1.5s ease 1.2s;
