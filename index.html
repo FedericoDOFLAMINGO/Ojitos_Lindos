@@ -490,7 +490,7 @@
       <path d="M20,32 C8,24 2,16 8,9 C12,4 18,6 20,12 C22,6 28,4 32,9 C38,16 32,24 20,32Z" fill="#e8b4bd" stroke="#c9a25c" stroke-width="1"/>
     </svg>
     <!-- Reemplaza "dedicatoria.mp4" por el nombre real de tu video -->
-    <video id="video-final" playsinline>
+    <video id="video-final" playsinline muted>
       <source src="dedicatoria.mp4" type="video/mp4">
     </video>
   </div>
@@ -563,9 +563,8 @@
 
   cerrarBtn.addEventListener('click', () => {
     pelicula.classList.add('oscurecer');
-    cancion.pause();
-    // Se llama play() de inmediato, dentro del mismo click, para que el
-    // navegador lo permita reproducir con audio sin necesitar otro toque.
+    // La cancion sigue sonando; el video ahora esta silenciado (muted)
+    // para que no se empalme con la musica de fondo.
     videoFinal.play().catch(()=>{});
     setTimeout(() => {
       finalEscena.classList.add('mostrar');
